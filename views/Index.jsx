@@ -5,17 +5,17 @@ class Index extends React.Component {
         const {pebbles} = this.props;
         return(
             <div>
-                <h1>Brunch n' Munch</h1>
-                {pebbles.map((pebbles, i) => {
+                <h1>A Southern Experience</h1>
+                {pebbles.map((pebbles) => {
                     return(
                         <li>
-                            <a href={`/pebbles/${i}`}>
-                                {pebbles.category.charAt(0).toUpperCase() + pebbles.category.slice(1)}
+                            <a href={`/pebbles/${pebbles.id}`}>
+                                {pebbles.name.charAt(0).toUpperCase() + pebbles.name.slice(1)}
                             </a>
                         </li>
                     );
                 })}
-                <a href={`/pebbles/${pebbles.id}/edit}`}><button type="submit">Edit</button></a>
+                
             </div>
         )
     }

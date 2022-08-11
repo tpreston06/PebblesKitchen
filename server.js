@@ -49,6 +49,15 @@ app.get('/pebbles', (req, res) => {
     })
 });
 
+//Show route
+app.get('/pebbles/:id', (req, res) => {
+    Pebbles.findById(req.params.id,(err,foundPebbles) => {
+         res.render('Show', {
+             pebbles: foundPebbles
+         })
+     })
+ });
+
 // Tell the app to listen on port 3000
 app.listen(port, function() {
     console.log('Listening on port', port);
