@@ -15,7 +15,7 @@ class Index extends React.Component {
                         </li>
                     );
                 })}
-                
+                <a href={`/pebbles/new`}><button>Create New Item</button></a>
             </div>
         )
     }

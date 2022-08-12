@@ -12,7 +12,7 @@ const style = {
                 <h2> {pebbles.name} </h2>
                     <img src={pebbles.img + '.jpg'}></img>
                     <a href="/pebbles">Back to Index</a>
-                    <a href={`/pebbles/${pebbles.id}/edit}`}><button type="submit">Edit</button></a>
+                    <a href={`/pebbles/${pebbles.id}/edit`}><button>Edit</button></a>
             </div>
             
         )
