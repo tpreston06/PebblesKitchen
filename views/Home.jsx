@@ -1,30 +1,25 @@
 const React = require('react');
 
-const style = {
-    backgroundColor: 'pink',
-};
 
-const fonts = {
-    color: 'White',
-    font: 'Lucida Bright',
-}
 
 class Home extends React.Component {
     render() {
         const {pebbles} = this.props;
         return(
-            <div>
-                <html style={style}>
-            <head>
-                <title>Home Page</title>
-            </head>
-            <body>
-                <h1 style={fonts}>Welcome to Pebbles Kitchen!</h1>
-                
-            </body>
-            </html>
-                <a href={`/`}><button type="submit">Enter</button></a>
-            </div>
+                <html>
+                    <head>
+                        <title>Home Page</title>
+                        <link href='./css/index.css' rel='stylesheet'></link>
+                    </head>
+                    <body>
+                        {/* <div className= 'style'></div> */}
+                        <img src="https://i.imgur.com/S0H57yf.png" height="100%" width={'100%'}></img>
+                        <div className='container'>
+                        <h1 className={"fonts"}>Welcome to Pebbles Kitchen!</h1>
+                        <a href={`/pebbles`}><button>Enter</button></a>
+                        </div>
+                    </body>
+                </html>
         )
     }
 }

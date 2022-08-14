@@ -21,23 +21,23 @@ app.use((req, res, next) => {
     next();
 });
 app.use(express.urlencoded({extended:false}));
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
+app.use(express.static("public"));
 
 //Views Engine
 app.set('view engine', 'jsx') //Setting up HTML template
 app.engine('jsx', require('express-react-views').createEngine()) //Initializing view engine
 
 //Seed Route
-app.get('/pebbles/seed', (req, res) => {   //app. get('/pebbles/seed', async (req,res) =>{)
-    // await pebbles.deleteMany({//prop: //})
-    // await Pebbles.create(menuData);
-    Pebbles.create(menuData);
+app. get('/pebbles/seed', async (req,res) =>{
+    await Pebbles.deleteMany({})
+    await Pebbles.create(menuData);    
     res.redirect('/pebbles');
-})
+});
 
 //Landing Page
 app.get('/', (req, res) => {
-    res.send('Welcome to Pebbles Kitchen!');
+    res.render('Home');
 });
 
 //Index Page
@@ -48,35 +48,42 @@ app.get('/pebbles', (req, res) => {
         console.log(allPebbles)
         res.render('Index', {
             pebbles: allPebbles  
-        })
-    })
+        });
+    });
 });
 
  //New Page
  app.get('/pebbles/new', (req, res) => {
     res.render('New')
-})
+});
 
 //Post route
 app.post('/pebbles/', (req, res) => {
     Pebbles.create(req.body, (err, createPebbles) => {
         res.redirect('/pebbles')
-    })
-})
+    });
+});
+
+//Index of Categories
+app.get('/pebbles/:category', (req, res) => {    
+    Pebbles.find({category: req.params.category},(err, allPebbles)=>{
+        res.render('Index', {
+            pebbles: allPebbles  
+        });
+    });
+});
 
 //Show route
-app.get('/pebbles/:id', (req, res) => {
+app.get('/pebbles/:category/:id', (req, res) => {
     Pebbles.findById(req.params.id,(err,foundPebbles) => {
          res.render('Show', {
              pebbles: foundPebbles
-         })
-     })
+         });
+     });
  });
 
-
-
 //Edit Page
-app.get('/pebbles/:id/edit', (req,res)=> {
+app.get('/pebbles/:category/:id/edit', (req,res)=> {
     Pebbles.findById(req.params.id, (err, foundPebbles) => {
         if(!err){
             res.render('Edit', {
@@ -87,11 +94,11 @@ app.get('/pebbles/:id/edit', (req,res)=> {
                 msg: err.message
             })
         }
-    })
-})
+    });
+});
 
 //Put route
-app.put('/pebbles/:id', (req,res) => {
+app.put('/pebbles/:category/:id', (req,res) => {
     Pebbles.findByIdAndUpdate(
         req.params.id,
         req.body,
@@ -99,9 +106,18 @@ app.put('/pebbles/:id', (req,res) => {
             new: true,
         },
         (err, foundPebbles) => {
-            res.redirect(`/pebbles/${req.params.id}`)
-        })
-})
+            res.redirect(`/pebbles/${req.params.category}/${req.params.id}`)
+        });
+});
+
+//Delete route
+app.delete('/pebbles/:category/:id', (req, res) => {
+    console.log('We are Deleting');
+    //First arg is ID we want to delete, 2nd arg is callback func
+     Pebbles.findByIdAndRemove(req.params.id, (err, data) => {
+         res.redirect('/pebbles');
+     });
+ });
 
 // Tell the app to listen on port 3000
 app.listen(port, function() {

@@ -20,6 +20,7 @@ const style = {
                             category: <input type="text" name="category"></input>
                             <input type="submit" name="" value="Submit"></input>
                             </form>
+                            <button>Clear Form</button>
                             <a href="/pebbles">Back to Index</a>
                     </div>
                 </body>
