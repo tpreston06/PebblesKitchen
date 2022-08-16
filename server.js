@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 });
 app.use(express.urlencoded({extended:false}));
 app.use(methodOverride('_method'));
-app.use(express.static("public"));
+app.use(express.static("./public"));
 
 //Views Engine
 app.set('view engine', 'jsx') //Setting up HTML template
@@ -67,7 +67,7 @@ app.post('/pebbles/', (req, res) => {
 //Index of Categories
 app.get('/pebbles/:category', (req, res) => {    
     Pebbles.find({category: req.params.category},(err, allPebbles)=>{
-        res.render('Index', {
+        res.render('Index2', {
             pebbles: allPebbles  
         });
     });

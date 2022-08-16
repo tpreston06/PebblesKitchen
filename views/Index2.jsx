@@ -7,13 +7,13 @@ const style = {
     flexDirection: 'column'
   };
 
-class Index extends React.Component {
+class Index2 extends React.Component {
     render() {
         const {pebbles} = this.props;
         return(
             <html>
                 <head>
-                <link href='./css/index.css' rel='stylesheet'></link>
+                <link href='/css/index.css' rel='stylesheet'></link>
                 </head>
             <div style={style}>
                 <ul>
@@ -23,15 +23,14 @@ class Index extends React.Component {
                     <li><a href="/pebbles/Ghetto%20Ice%20cream%20Truck/">Ghetto Ice cream Truck</a></li>
                 </ul><br/>
                 <h1>A Southern Experience</h1>
-                <div className="shop">
+                <div>
                 {pebbles.map((pebbles) => {
                     return(
-                        <div className="menuItems">
-                             <h3>{pebbles.name.charAt(0).toUpperCase() + pebbles.name.slice(1)}</h3>
+                        <div>
+                            <h3>{pebbles.name.charAt(0).toUpperCase() + pebbles.name.slice(1)}</h3>
                             <a href={`/pebbles/${pebbles.category}/${pebbles.id}`}>
-                             <img src={pebbles.img} height="150px" width="150px"></img>
-                            </a>
-                            
+                             <img src={pebbles.img} height="150px" width="150px"></img>   
+                            </a>                            
                         </div>
                     );
                 })}
@@ -44,4 +43,4 @@ class Index extends React.Component {
     }
 }
 
-module.exports = Index;
+module.exports = Index2;

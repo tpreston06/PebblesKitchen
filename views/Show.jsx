@@ -2,10 +2,6 @@ const React = require('react')
 const style = {
     backgroundColor: 'pink'
   };
-const button = {
-    cursor: 'pointer',
-    borderRadius: '10px',
-};
 
   class Show extends React.Component {
     render() {
@@ -28,10 +24,14 @@ const button = {
             </form>
         }       
         return(
+            <html>
+                <head>
+                <link href='./css/index.css' rel='stylesheet'></link>
+                </head>
             <div style = {style}>
                 <h1> {pebbles.category} </h1>
                 <h2> {pebbles.name} </h2>
-                    <img src={pebbles.img}></img>
+                    <img src={pebbles.img} height="400px" width="400px"></img>
                     <h5> {pebbles.description} </h5>
                     <h3>Available: {qty}</h3>
                     {button}
@@ -40,8 +40,9 @@ const button = {
                     <form action={`/pebbles/${pebbles.category}/${pebbles.id}?_method=DELETE`} method='POST'>
                     <button>Delete</button><br/>
                     </form>
-                    <a href="/pebbles"><button>Back to Index</button></a>
+                    <a href="/pebbles"><button>Back to Menu</button></a>
             </div>
+            </html>
             
         )
     }
