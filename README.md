@@ -63,5 +63,5 @@ NodeJS, Express, MongoDB, Heroku, HTML, CSS
 * [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/tpreston06)
 * [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/tiarious-p-36728579)
 * [![heroku](https://img.shields.io/badge/PebblesKitchen-Heroku-ff69b4)](https://pebbles-kitchen.herokuapp.com/)
-* [![youtube](https://youtu.be/F7HYRaZIOXo)
+* [![youtube](https://img.shields.io/badge/YouTube-PebblesKitchen-red)](https://youtu.be/F7HYRaZIOXo)
 
