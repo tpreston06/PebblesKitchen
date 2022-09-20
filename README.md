@@ -1,4 +1,3 @@
-git
 # Pebbles Kitchen
 
 **Project 2:** Create/style a Shop, that contains all 7 Restful Routes.
